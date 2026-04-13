@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Ashi.MongoInterface.Helper
 {
@@ -11,6 +12,9 @@ namespace Ashi.MongoInterface.Helper
 
     public abstract class Document : IDocument
     {
+        [BsonId]
+        [BsonGuidRepresentation(GuidRepresentation.Standard)]
         public Guid Id { get; set; }
     }
+
 }
